@@ -1,0 +1,825 @@
+/* =================================================================
+   1. ROOT VARIABLES & THEMING (Light & Dark Mode)
+   ================================================================ */
+:root {
+  --bg-color: #f8f9fa;
+  --alt-bg-color: #ffffff;
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --accent-color: #0d6efd;
+  --accent-hover: #0b5ed7;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --code-bg: #212529;
+  --code-text: #f8f9fa;
+  --header-bg: rgba(248, 249, 250, 0.85);
+  --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --alt-bg-color: #1a1a1a;
+  --text-color: #e9ecef;
+  --text-muted: #adb5bd;
+  --accent-color: #3d8bfd;
+  --accent-hover: #6ea8fe;
+  --border-color: #2c2c2c;
+  --card-bg: #1e1e1e;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --code-bg: #0d1117;
+  --code-text: #c9d1d9;
+  --header-bg: rgba(18, 18, 18, 0.85);
+}
+
+/* =================================================================
+   2. GLOBAL STYLES & TYPOGRAPHY
+   ================================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif, system-ui;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code, pre, .hero-kicker, .timeline-tag {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Custom Mouse Cursor Design */
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+  z-index: 99999;
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+body.hovered-link #cursor {
+  width: 35px;
+  height: 35px;
+  background-color: rgba(13, 110, 253, 0.4);
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* =================================================================
+   3. NAVIGATION BAR
+   ================================================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.navbar-brand {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-color) !important;
+}
+
+.nav-link {
+  color: var(--text-color) !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: var(--accent-color) !important;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background-color: var(--border-color);
+  color: var(--accent-color);
+}
+
+/* =================================================================
+   4. HERO SECTION & CODE WINDOW
+   ================================================================ */
+   
+.hero {
+  padding: 6rem 0 4rem;
+}
+
+.hero-kicker {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-role {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero-lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.hero-meta a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.hero-meta a:hover {
+  color: var(--accent-color);
+}
+
+/* Code Window Component */
+.code-window {
+  background-color: var(--code-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color);
+}
+
+.code-window-bar {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-r { background-color: #ff5f56; }
+.dot-y { background-color: #ffbd2e; }
+.dot-g { background-color: #27c93f; }
+
+.code-window-title {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.code-window-body {
+  padding: 20px;
+  margin: 0;
+  color: var(--code-text);
+  font-size: 0.9rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* Typing Cursor Effect */
+#typedCode::after {
+  content: "|";
+  display: inline-block;
+  color: var(--accent-color);
+  animation: blink 0.7s infinite;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+@keyframes moveLeftRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+.hero-name {
+  display: inline-block; 
+  animation: moveLeftRight 2.5s ease-in-out infinite; 
+}
+/* =================================================================
+   5. SECTIONS & GENERAL COMPONENTS
+   ================================================================ */
+.section {
+  padding: 5rem 0;
+}
+
+.section-alt {
+  background-color: var(--alt-bg-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-text {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.section-intro {
+  margin-bottom: 3rem;
+}
+
+/* Buttons */
+.btn-accent {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  transition: var(--transition);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #fff;
+}
+
+.btn-outline-accent {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  background: transparent;
+  transition: var(--transition);
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* =================================================================
+   6. ABOUT & INFO PANEL
+   ================================================================ */
+.info-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.info-panel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+}
+
+.info-panel-school {
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.2rem;
+}
+
+.info-panel-detail {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.info-panel-divider {
+  border-color: var(--border-color);
+  margin: 1.5rem 0;
+}
+
+/* =================================================================
+   7. TIMELINE / ROADMAP
+   ================================================================ */
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  max-width: 800px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 55px;
+}
+
+.timeline-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.timeline-badge {
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  margin-left: 4px;
+}
+
+.timeline-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.timeline-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-group {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+.timeline-group strong {
+  color: var(--text-color);
+}
+
+/* =================================================================
+   8. CERTIFICATIONS, STRENGTHS & PROJECTS
+   ================================================================ */
+.cert-list {
+  max-width: 800px;
+}
+
+.cert-row {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.cert-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cert-name {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.cert-issuer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.cert-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.cert-link:hover {
+  text-decoration: underline;
+}
+
+.strength {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.strength-icon {
+  font-size: 1.75rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.strength-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.strength-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.project-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.project-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-tags li {
+  background-color: var(--border-color);
+  color: var(--text-color);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* =================================================================
+   9. CONTACT & FOOTER
+   ================================================================ */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+}
+
+.contact-list i {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+.contact-list a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-list a:hover {
+  color: var(--accent-color);
+}
+
+.contact-form .form-control {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.contact-form .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.contact-status {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.site-footer {
+  background-color: var(--alt-bg-color);
+  border-top: 1px solid var(--border-color);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.footer-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-social a {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  transition: color 0.2s;
+}
+
+.footer-social a:hover {
+  color: var(--accent-color);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-hover);
+}
+
+
+
+                               /* cursor section */
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif, system-ui;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: none; 
+}
+
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff; 
+  border: 2px solid var(--accent-color); 
+  border-radius: 50%;
+  pointer-events: none; 
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+  z-index: 99999;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+
+body.hovered-link #cursor {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(13, 110, 253, 0.3); 
+  border-color: #ffffff;
+}
+
+
+                                         /* Splash Screen Styles */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--code-bg, #121212);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.splash-content {
+  text-align: center;
+  color: #ffffff;
+}
+
+.splash-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color, #0d6efd);
+}
+
+.splash-text {
+  font-size: 1rem;
+  color: #adb5bd;
+  margin-bottom: 1.5rem;
+}
+
+/* Class to hide splash screen */
+.splash-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+@keyframes slideAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); 
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50px); 
+  }
+}
+
+
+.hero-name {
+  display: inline-block;
+  animation: slideAndFade 4s ease-in-out infinite;
+}
+
+
+
+
+/* =================================================================
+   INFINITE SKILLS MARQUEE
+   ================================================================ */
+.skills-marquee-container {
+  background-color: var(--alt-bg-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+
+.skills-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollMarquee 25s linear infinite;
+}
+
+.skills-marquee-container:hover .skills-track {
+  animation-play-state: paused;
+}
+
+
+.skill-badge {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.skill-badge i {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
