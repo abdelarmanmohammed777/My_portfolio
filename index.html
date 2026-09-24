@@ -3,27 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdelrahman Mohamed — Frontend Developer</title>
+  <title>Abdelrahman Mohamed — Junior Full Stack Developer</title>
   <meta name="description" content="Portfolio of Abdelrahman Mohamed, Frontend Developer and IT student in Ismailia, Egypt, building toward full-stack development." />
-              <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>" />
-              <link rel="preconnect" href="https://fonts.googleapis.com" />
-              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-              <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-              <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.css">
-              <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="bg-white text-dark">
+
+  <!-- Custom Cursor Element -->
+  <div id="cursor"></div>
+
+  <!-- Splash Screen -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo">{ AM }</div>
+      <p class="splash-text">Loading Portfolio...</p>
+    </div>
+  </div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============================= NAVBAR ============================= -->
+
   <header class="site-header" id="siteHeader">
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="#top">{ AM }</a>
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#mainNav" aria-controls="mainNav"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -36,9 +47,10 @@
             <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
             <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#github-stats">GitHub</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             <li class="nav-item ms-lg-2">
-              <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+              <button class="theme-toggle" type="button" aria-label="Switch theme">
                 <i class="bi bi-moon-stars" aria-hidden="true"></i>
               </button>
             </li>
@@ -47,96 +59,179 @@
       </div>
     </nav>
   </header>
-
+  
   <main id="main">
 
-    <!-- ============================= HERO ============================= -->
 
-    <section class="hero" id="top">
-      <div class="container">
-        <div class="row align-items-center gy-5">
+<!-- ============================= HERO START ============================= -->
 
-          <div class="col-lg-6">
-            <p class="hero-kicker">Ismailia, Egypt</p>
-            <h1 class="hero-name">Abdelrahman Mohamed</h1>
-            <p class="hero-role">Frontend Developer &amp; fullstack Developer</p>
-            <p class="hero-lede">
-              I build clean, responsive interfaces and I'm currently expanding
-              from the frontend into full-stack development — one project,
-              one commit at a time.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn btn-accent" href="#projects">View my work</a>
-              <a class="btn btn-outline-accent" href="#contact">Get in touch</a>
+<section class="hero text-center text-lg-start" id="top">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <p class="hero-kicker">Ismailia, Egypt</p>
+        <h1 class="hero-name">Abdelrahman Mohamed</h1>
+        <p class="hero-role">
+          Frontend Developer &amp; Full-Stack Developer
+        </p>
+        <p class="hero-lede">
+          I build clean, responsive interfaces and I'm currently expanding
+          from the frontend into full-stack development — one project,
+          one commit at a time.
+        </p>
+        <div class="hero-actions justify-content-center justify-content-lg-start">
+          <a class="btn btn-accent" href="#projects">View my work</a>
+          <a class="btn btn-outline-accent" href="#contact">Get in touch</a>
+        </div>
+        <ul class="hero-meta list-unstyled gap-3 justify-content-center justify-content-lg-start">
+          <li>
+            <div class="copy-email-wrapper">
+              <a href="mailto:bodaelaraby333@gmail.com">
+                <i class="bi bi-envelope" aria-hidden="true"></i>
+                <span id="targetEmail">bodaelaraby333@gmail.com</span>
+              </a>
+              <button
+                id="copyEmailBtn"
+                class="btn btn-sm btn-outline-secondary ms-2 p-0 px-1"
+                title="Copy Email"
+                type="button"
+              >
+                <i class="bi bi-clipboard"></i>
+              </button>
+              <span id="copyTooltip" class="copy-tooltip">Copied!</span>
             </div>
+          </li>
+          <li>
+            <a href="tel:+201288312230">
+              <i class="bi bi-telephone" aria-hidden="true"></i>
+              Phone
+            </a>
+          </li>
 
-            <ul class="hero-meta list-unstyled gap-3">
-              <li>
-                <a href="mailto:bodaelaraby333@gmail.com">
-                  <i class="bi bi-envelope" aria-hidden="true"></i> Email
-                </a>
-              </li>
-              <li>
-                <a href="tel:+201288312230">
-                  <i class="bi bi-telephone" aria-hidden="true"></i> Phone
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/abdelarmanmohammed777" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-github" aria-hidden="true"></i> GitHub
-                </a>
-              </li>
-              <li>
-                <a href="Abdelrahman_Mohamed_CV_NoProjectLinks.pdf" download>
-                  <i class="bi bi-download" aria-hidden="true"></i> Download CV
-                </a>
-                 <a href="https://www.linkedin.com/in/abdulrahman-mohamed-49a972437/" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
-                  </a>
-              </li>
-            </ul>
+          <li>
+            <a
+              href="https://github.com/abdelarmanmohammed777"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="bi bi-github" aria-hidden="true"></i>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="certifications/Abdelrahman_Mohamed_CV_NoProjectLinks.pdf"
+              download
+            >
+              <i class="bi bi-download" aria-hidden="true"></i>
+              Download CV
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/abdulrahman-mohamed-49a972437/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+        <div class="hero-tools d-flex justify-content-center align-items-center flex-wrap gap-3 mt-4">
+          <button
+            id="sharePortfolioBtn"
+            class="btn btn-outline-accent d-inline-flex align-items-center gap-2"
+            title="Share Site"
+            type="button"
+          >
+            <i class="bi bi-share-fill"></i>
+            Share Portfolio
+          </button>
+
+          <div class="availability-banner d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill border">
+            <span class="status-dot-pulse position-relative d-inline-block">
+              <span class="pulse-ring"></span>
+              <span class="solid-dot"></span>
+            </span>
+
+            <span class="status-text small fw-medium">
+              Available for Internships &amp; Junior Roles
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="code-window text-start" aria-hidden="true">
+          <div class="code-window-bar">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+            <span class="code-window-title">profile.json</span>
           </div>
 
-          <div class="col-lg-6">
-            <div class="code-window" aria-hidden="true">
-              <div class="code-window-bar">
-                <span class="dot dot-r"></span>
-                <span class="dot dot-y"></span>
-                <span class="dot dot-g"></span>
-                <span class="code-window-title">profile.json</span>
-              </div>
-              <pre class="code-window-body"><code id="typedCode" data-code='{
-              &quot;name&quot;: &quot;Abdelrahman Mohamed&quot;,
-              &quot;role&quot;: &quot;Frontend Developer&quot;,
-              &quot;based_in&quot;: &quot;Ismailia, Egypt&quot;,
-              &quot;stack&quot;: [&quot;HTML5&quot;, &quot;CSS3&quot;, &quot;JavaScript&quot;, &quot;Bootstrap&quot;],
-              &quot;currently_learning&quot;: &quot;Backend &amp; REST APIs&quot;,
-              &quot;available_for&quot;: &quot;internships&quot;
-            }'></code></pre>
-            </div>
-          </div>
+          <pre class="code-window-body"><code id="typedCode"></code></pre>
 
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= HERO END ============================= -->
+
+
+
+
+    <!-- ============================= STATS & IMPACT SECTION ============================= -->
+
+    <section class="section stats-section">
+      <div class="container">
+        <div class="row text-center gy-4">
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <h3 class="stat-number" data-target="3">0</h3>
+              <p class="stat-label">Years Learning / Exp</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <h3 class="stat-number" data-target="10">0</h3>
+              <p class="stat-label">Projects Built</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <h3 class="stat-number" data-target="6">0</h3>
+              <p class="stat-label">Certifications</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card">
+              <h3 class="stat-number" data-target="100">0</h3>
+              <p class="stat-label">% Passion &amp; Code</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <!-- ============================= HERO ============================= -->
-     
+
     <!-- ============================= ABOUT ============================= -->
+
     <section class="section" id="about">
       <div class="container">
-        <div class="row gy-4 gy-lg-0">
-
-          <div class="col-lg-7">
-            <h2 class="section-title">About</h2>
+        <div class="row gy-4 gy-lg-0 align-items-center">
+          <div class="col-lg-7 text-center text-lg-start">
+            <h2 class="section-title text-center text-lg-start">About Me</h2>
             <p class="section-text">
               I'm an Information Technology student at WE Applied Technology
               School (WE ATS), specializing in Web Development. I'm
               ambitious about building clean, modern and fully responsive
               user interfaces, and I've paired that with a solid foundation
-              in web development fundamentals, data fundamentals, computer
+              in junior Full Stack Developer, data fundamentals, computer
               science, object-oriented programming, data structures,
-              algorithms, and SQL.
+              algorithms, and SQL PHP &amp; React.js.
             </p>
             <p class="section-text">
               Right now I'm following a self-directed roadmap toward
@@ -144,178 +239,297 @@
               and where I'm headed in the roadmap below.
             </p>
           </div>
-
           <div class="col-lg-5">
-            <div class="info-panel">
+            <div class="info-panel text-start">
               <h3 class="info-panel-title">Education</h3>
               <p class="info-panel-school">WE Applied Technology School (WE ATS)</p>
               <p class="info-panel-detail">Information Technology &amp; Web Development</p>
               <p class="info-panel-detail">Ismailia, Egypt · 2024 – 2026</p>
-
               <hr class="info-panel-divider" />
-
               <h3 class="info-panel-title">Focus</h3>
               <p class="info-panel-detail">Frontend Development → Full-Stack</p>
-
               <h3 class="info-panel-title">Status</h3>
               <p class="info-panel-detail">Open to internships &amp; junior roles</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-    
-    <!-- ============================= ABOUT ============================= -->
+
+    <!-- ============================= TECH STACK (ICONS BADGES) ============================= -->
+
+    <section class="section" id="tech-stack-icons">
+      <div class="container text-center">
+        <h2 class="section-title text-center"><i class="bi bi-lightning-fill text-warning"></i> Tech Stack</h2>
+        <p class="section-text section-intro text-center">
+         The technologies and tools I use to build modern, responsive, and interactive web experiences.
+        </p>
+        <div class="p-4 border rounded-4 bg-light text-center overflow-x-auto shadow-sm">
+          <div class="d-inline-flex align-items-center gap-3 flex-wrap justify-content-center">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="SQL" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="45" height="45" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pycharm/pycharm-original.svg" alt="PyCharm" width="45" height="45" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= INTERACTIVE TECH STACK ============================= -->
+
+    <section class="section" id="tech-stack">
+      <div class="container text-center">
+        <div class="mb-5">
+          <h2 class="section-title text-center">Tech Stack &amp; Expertise</h2>
+          <p class="section-text section-intro mx-auto text-center" style="max-width: 600px;">
+            The technologies, tools, and languages I use to bring ideas to life, from pixel-perfect UI to backend logic.
+          </p>
+        </div>
+        <div class="row g-4 text-start">
+          <div class="col-md-4">
+            <div class="tech-card h-100 p-4 border rounded-4 position-relative overflow-hidden shadow-sm">
+              <div class="tech-card-icon mb-3">
+                <i class="bi bi-code-square fs-1 text-primary"></i>
+              </div>
+              <h3 class="h4 mb-3 fw-bold">Frontend Development</h3>
+              <p class="text-muted mb-4">Building responsive, modern, and interactive user interfaces with clean architecture.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">HTML5</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">CSS3</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">JavaScript (ES6+)</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">Bootstrap</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">React.js</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="tech-card h-100 p-4 border rounded-4 position-relative overflow-hidden shadow-sm">
+              <div class="tech-card-icon mb-3">
+                <i class="bi bi-server fs-1 text-success"></i>
+              </div>
+              <h3 class="h4 mb-3 fw-bold">Backend &amp; Data</h3>
+              <p class="text-muted mb-4">Handling logic, server-side processing, database management, and data structures.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">Python (OOP)</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">PHP</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">Node.js</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">SQL / Databases</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">Data Structures</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="tech-card h-100 p-4 border rounded-4 position-relative overflow-hidden shadow-sm">
+              <div class="tech-card-icon mb-3">
+                <i class="bi bi-tools fs-1 text-warning"></i>
+              </div>
+              <h3 class="h4 mb-3 fw-bold">Tools &amp; Workflow</h3>
+              <p class="text-muted mb-4">My daily development environment, version control, and productivity tools.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">Git &amp; GitHub</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">VS Code</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">PyCharm</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">RESTful APIs</span>
+                <span class="badge bg-secondary-subtle text-dark px-3 py-2">Responsive Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================= SKILLS TICKER / MARQUEE ============================= -->
 
-<div class="skills-marquee-container">
-  <div class="skills-track">
-    <div class="skill-badge"><i class="bi bi-filetype-html"></i> HTML5</div>
-    <div class="skill-badge"><i class="bi bi-filetype-css"></i> CSS3</div>
-    <div class="skill-badge"><i class="bi bi-filetype-js"></i> JavaScript</div>
-    <div class="skill-badge"><i class="bi bi-bootstrap"></i> Bootstrap</div>
-    <div class="skill-badge"><i class="bi bi-code-slash"></i> Python (OOP)</div>
-    <div class="skill-badge"><i class="bi bi-database"></i> SQL / Databases</div>
-    <div class="skill-badge"><i class="bi bi-git"></i> Git &amp; GitHub</div>
-    <div class="skill-badge"><i class="bi bi-filetype-html"></i> HTML5</div>
-    <div class="skill-badge"><i class="bi bi-filetype-css"></i> CSS3</div>
-    <div class="skill-badge"><i class="bi bi-filetype-js"></i> JavaScript</div>
-    <div class="skill-badge"><i class="bi bi-bootstrap"></i> Bootstrap</div>
-    <div class="skill-badge"><i class="bi bi-code-slash"></i> Python (OOP)</div>
-    <div class="skill-badge"><i class="bi bi-database"></i> SQL / Databases</div>
-    <div class="skill-badge"><i class="bi bi-git"></i> Git &amp; GitHub</div>
+    <div class="skills-marquee-container">
+      <div class="skills-track">
+        <div class="skill-badge"><i class="bi bi-filetype-html"></i> HTML5</div>
+        <div class="skill-badge"><i class="bi bi-filetype-css"></i> CSS3</div>
+        <div class="skill-badge"><i class="bi bi-filetype-js"></i> JavaScript</div>
+        <div class="skill-badge"><i class="bi bi-bootstrap"></i> Bootstrap</div>
+        <div class="skill-badge"><i class="bi bi-code-slash"></i> Python (OOP)</div>
+        <div class="skill-badge"><i class="bi bi-database"></i> SQL / Databases</div>
+        <div class="skill-badge"><i class="bi bi-git"></i> Git &amp; GitHub</div>
+        <div class="skill-badge"><i class="bi bi-filetype-html"></i> HTML5</div>
+        <div class="skill-badge"><i class="bi bi-filetype-css"></i> CSS3</div>
+        <div class="skill-badge"><i class="bi bi-filetype-js"></i> JavaScript</div>
+        <div class="skill-badge"><i class="bi bi-bootstrap"></i> Bootstrap</div>
+        <div class="skill-badge"><i class="bi bi-code-slash"></i> Python (OOP)</div>
+        <div class="skill-badge"><i class="bi bi-database"></i> SQL / Databases</div>
+        <div class="skill-badge"><i class="bi bi-git"></i> Git &amp; GitHub</div>
+      </div>
+    </div>
+
+
+<!-- ============================= ROADMAP START ============================= -->
+
+<section class="section" id="roadmap">
+  <div class="container">
+    <h2 class="section-title text-start">Skills &amp; Learning Roadmap</h2>
+    <p class="section-text section-intro text-start">
+      A year-by-year build-up, from frontend foundations to a full-stack finish.
+    </p>
+    <ol class="timeline text-start">
+      <li class="timeline-item">
+        <span class="timeline-tag">v2024</span>
+        <div class="timeline-content">
+          <h3 class="timeline-heading">Frontend Foundation</h3>
+          <p class="timeline-group">
+            <strong>Core Web:</strong>
+            HTML5, CSS3, JavaScript (ES6+), Bootstrap, React.js
+          </p>
+          <p class="timeline-group">
+            <strong>Layout &amp; Design:</strong>
+            Responsive Web Design, DOM Manipulation, Flexbox, CSS Grid
+          </p>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <span class="timeline-tag">v2025</span>
+        <div class="timeline-content">
+          <h3 class="timeline-heading">Back &amp; Data Fundamentals</h3>
+          <p class="timeline-group">
+            <strong>Programming &amp; Logic:</strong>
+            Python, Object-Oriented Programming
+          </p>
+          <p class="timeline-group">
+            <strong>Data &amp; Core CS:</strong>
+            Data Fundamentals, Data Structures, Algorithms
+          </p>
+          <p class="timeline-group">
+            <strong>Databases:</strong>
+            Relational Databases &amp; SQL Basics
+          </p>
+        </div>
+      </li>
+      <li class="timeline-item timeline-item-current">
+        <span class="timeline-tag">
+          v2026-beta
+          <span class="timeline-badge">in progress</span>
+        </span>
+        <div class="timeline-content">
+          <h3 class="timeline-heading">Full-Stack Expansion</h3>
+          <p class="timeline-group">
+            <strong>Backend:</strong>
+            PHP, Node.js, Backend Development &amp; RESTful API Integration
+          </p>
+          <p class="timeline-group">
+            <strong>Tools:</strong>
+            Git, GitHub, VS Code, PyCharm
+          </p>
+        </div>
+      </li>
+    </ol>
   </div>
-</div>
-    
-  <!-- ============================= SKILLS TICKER / MARQUEE ============================= -->
+</section>
+
+<!-- ============================= ROADMAP END ============================= -->
 
 
-    <!-- ============================= ROADMAP ============================= -->
+<!-- ============================= CERTIFICATIONS START ============================= -->
 
-    <section class="section section-alt" id="roadmap">
-      <div class="container">
-        <h2 class="section-title">Skills &amp; Learning Roadmap</h2>
-        <p class="section-text section-intro">
-          A year-by-year build-up, from frontend foundations to a full-stack
-          finish.
-        </p>
-        <ol class="timeline">
-          <li class="timeline-item">
-            <span class="timeline-tag">v2024</span>
-            <div class="timeline-content">
-              <h3 class="timeline-heading">Frontend Foundation</h3>
-              <p class="timeline-group"><strong>Core Web:</strong> HTML5, CSS3, JavaScript (ES6+), Bootstrap</p>
-              <p class="timeline-group"><strong>Layout &amp; Design:</strong> Responsive Web Design, DOM Manipulation, Flexbox, CSS Grid</p>
-            </div>
-          </li>
-          <li class="timeline-item">
-            <span class="timeline-tag">v2025</span>
-            <div class="timeline-content">
-              <h3 class="timeline-heading">Back  &amp; Data Fundamentals</h3>
-              <p class="timeline-group"><strong>Programming &amp; Logic:</strong> Python, Object-Oriented Programming</p>
-              <p class="timeline-group"><strong>Data &amp; Core CS:</strong> Data Fundamentals, Data Structures, Algorithms</p>
-              <p class="timeline-group"><strong>Databases:</strong> Relational Databases &amp; SQL Basics</p>
-            </div>
-          </li>
-          <li class="timeline-item timeline-item-current">
-            <span class="timeline-tag">v2026-beta <span class="timeline-badge">in progress</span></span>
-            <div class="timeline-content">
-              <h3 class="timeline-heading">Full-Stack Expansion</h3>
-              <p class="timeline-group"><strong>Backend:</strong> Backend Development &amp; RESTful API Integration</p>
-              <p class="timeline-group"><strong>Tools:</strong> Git, GitHub, VS Code</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+<section class="section" id="certifications">
+  <div class="container">
+    <h2 class="section-title text-start">Certifications</h2>
+    <p class="section-text section-intro text-start">
+      Verified certificates and training achievements.
+    </p>
+    <ul class="cert-list list-unstyled text-start">
+      <li class="cert-row">
+        <div>
+          <p class="cert-name">Web Development Fundamentals</p>
+          <p class="cert-issuer">IBM SkillsBuild</p>
+        </div>
+       <a class="cert-link" href="certifications/Course_Certificate_En (1).pdf" target="_blank" rel="noopener">Verify <i class="bi bi-box-arrow-up-right"></i></a>
+      </li>
+      <li class="cert-row">
+        <div>
+          <p class="cert-name">Data Fundamentals</p>
+          <p class="cert-issuer">IBM SkillsBuild</p>
+        </div>
+        <a class="cert-link" href="certifications/IBMDesign20260611-32-vo2xb7.pdf" target="_blank" rel="noopener">Verify <i class="bi bi-box-arrow-up-right"></i></a>
+      </li>
+      <li class="cert-row">
+        <div>
+          <p class="cert-name">Explore Emerging Tech</p>
+          <p class="cert-issuer">IBM SkillsBuild</p>
+        </div>
+      <a class="cert-link" href="certifications/ExploreEmergingTech_Badge20260614-29-baenp0.pdf" target="_blank" rel="noopener">Verify <i class="bi bi-box-arrow-up-right"></i></a>
+      </li>
+      <li class="cert-row">
+        <div>
+          <p class="cert-name">Python Programming Basics</p>
+          <p class="cert-issuer">ITI Mahara-Tech (AI Academy)</p>
+        </div>
+      <a class="cert-link" href="certifications/Course_Certificate_En.pdf"target="_blank"rel="noopener">Verify<i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </li>
+      <li class="cert-row">
+        <div>
+          <p class="cert-name">Information Technology Certification</p>
+          <p class="cert-issuer">WE Applied Technology School</p>
+        </div>
+        <a class="cert-link" href="#">
+          View
+          <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
 
-    <!-- ============================= ROADMAP ============================= -->
+<!-- ============================= CERTIFICATIONS END ============================= -->
 
-    <!-- ============================= CERTIFICATIONS ============================= -->
 
-    <section class="section" id="certifications">
-      <div class="container">
-        <h2 class="section-title">Certifications</h2>
-        <p class="section-text section-intro">
-          Add your credential links below once you have them handy.
-        </p>
-        <ul class="cert-list list-unstyled">
-          <li class="cert-row">
-            <div>
-              <p class="cert-name">Web Development Fundamentals</p>
-              <p class="cert-issuer">IBM SkillsBuild</p>
-            </div>
-            <a class="cert-link" href="certifications/Course_Certificate_En (1).pdf">Verify <i class="bi bi-box-arrow-up-right"></i></a>
-          </li>
-          <li class="cert-row">
-            <div>
-              <p class="cert-name">Data Fundamentals</p>
-              <p class="cert-aissuer">IBM SkillsBuild</p>
-            </div>
-            <a class="cert-link" href="certifications/IBMDesign20260611-32-vo2xb7.pdf">Verify <i class="bi bi-box-arrow-up-right"></i></a>
-          </li>
-          <li class="cert-row">
-            <div>
-              <p class="cert-name">Explore Emerging Tech</p>
-              <p class="cert-issuer">IBM SkillsBuild</p>
-            </div>
-            <a class="cert-link" href="certifications/ExploreEmergingTech_Badge20260614-29-baenp0.pdf">Verify <i class="bi bi-box-arrow-up-right"></i></a>
-          </li>
-          <li class="cert-row">
-            <div>
-              <p class="cert-name">Python Programming Basics</p>
-              <p class="cert-issuer">ITI Mahara-Tech (AI Academy)</p>
-            </div>
-            <a class="cert-link" href="certifications/Course_Certificate_En.pdf">Verify <i class="bi bi-box-arrow-up-right"></i></a>
-          </li>
-          <li class="cert-row">
-            <div>
-              <p class="cert-name">Information Technology Certification</p>
-              <p class="cert-issuer">WE Applied Technology School</p>
-            </div>
-            <a class="cert-link" href="#">View <i class="bi bi-box-arrow-up-right"></i></a>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <!-- ============================= STRENGTHS ============================= -->
 
-    <!-- ============================= CERTIFICATIONS ============================= -->
-
-     <!-- ============================= STRENGTHS ============================= -->
-
-    <section class="section section-alt" id="strengths">
-      <div class="container">
-        <h2 class="section-title">Beyond the Code</h2>
-
-        <div class="row gy-4">
+    <section class="section" id="strengths">
+      <div class="container text-center">
+        <h2 class="section-title text-center mb-5">Beyond the Code</h2>
+        <div class="row g-4 text-start">
           <div class="col-sm-6 col-lg-3">
-            <div class="strength">
-              <i class="bi bi-puzzle strength-icon" aria-hidden="true"></i>
-              <h3 class="strength-title">Problem Solving</h3>
-              <p class="strength-text">Breaking down complex problems and debugging code efficiently.</p>
+            <div class="strength-card h-100 p-4 border rounded-4 shadow-sm">
+              <div class="strength-icon mb-3">
+                <i class="bi bi-puzzle" aria-hidden="true"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-2">Problem Solving</h3>
+              <p class="small mb-0">Breaking down complex problems and debugging code efficiently.</p>
             </div>
           </div>
           <div class="col-sm-6 col-lg-3">
-            <div class="strength">
-              <i class="bi bi-people strength-icon" aria-hidden="true"></i>
-              <h3 class="strength-title">Teamwork</h3>
-              <p class="strength-text">Effective collaboration in technical teams and school group projects.</p>
+            <div class="strength-card h-100 p-4 border rounded-4 shadow-sm">
+              <div class="strength-icon mb-3">
+                <i class="bi bi-people" aria-hidden="true"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-2">Teamwork</h3>
+              <p class="small mb-0">Effective collaboration in technical teams and school group projects.</p>
             </div>
           </div>
           <div class="col-sm-6 col-lg-3">
-            <div class="strength">
-              <i class="bi bi-arrow-repeat strength-icon" aria-hidden="true"></i>
-              <h3 class="strength-title">Adaptability</h3>
-              <p class="strength-text">Self-motivated, staying current with modern tech roadmaps and tools.</p>
+            <div class="strength-card h-100 p-4 border rounded-4 shadow-sm">
+              <div class="strength-icon mb-3">
+                <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-2">Adaptability</h3>
+              <p class="small mb-0">Self-motivated, staying current with modern tech roadmaps and tools.</p>
             </div>
           </div>
           <div class="col-sm-6 col-lg-3">
-            <div class="strength">
-              <i class="bi bi-book" aria-hidden="true"></i>
-              <h3 class="strength-title">Self-Directed Learning</h3>
-              <p class="strength-text">Independently researching and applying new technologies to real projects.</p>
+            <div class="strength-card h-100 p-4 border rounded-4 shadow-sm">
+              <div class="strength-icon mb-3">
+                <i class="bi bi-book" aria-hidden="true"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-2">Self-Directed Learning</h3>
+              <p class="small mb-0">Independently researching and applying new technologies to real projects.</p>
             </div>
           </div>
         </div>
@@ -325,16 +539,14 @@
     <!-- ============================= PROJECTS ============================= -->
 
     <section class="section" id="projects">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-text section-intro">
-          Two recent builds. Links are placeholders until the repos are live.
+      <div class="container text-center">
+        <h2 class="section-title text-center">Projects</h2>
+        <p class="section-text section-intro text-center">
+          Featured works showcasing front-end capabilities and UI design.
         </p>
-
-        <div class="row gy-4">
-
+        <div class="row gy-4 text-start">
           <div class="col-md-6">
-            <article class="project-panel">
+            <article class="project-panel shadow-sm">
               <h3 class="project-title">Soup Project</h3>
               <p class="project-text">
                 A modern frontend web application focused on responsive
@@ -345,13 +557,14 @@
                 <li>HTML5</li><li>CSS3</li><li>JavaScript</li>
               </ul>
               <div class="project-actions">
-                <a class="btn btn-sm btn-accent" href="https://github.com/user-attachments/assets/21dea63f-0743-40cd-8a3c-f1ac0c7cec27">Live demo</a>
-                <a class="btn btn-sm btn-outline-accent" href="https://github.com/abdelarmanmohammed777/soup-">Source code</a>
+                <a class="btn btn-sm btn-accent" href="https://github.com/user-attachments/assets/21dea63f-0743-40cd-8a3c-f1ac0c7cec27" target="_blank" rel="noopener">Live demo</a>
+                <a class="btn btn-sm btn-outline-accent" href="https://github.com/abdelarmanmohammed777/soup-" target="_blank" rel="noopener">Source code</a>
+              </div>
             </article>
           </div>
 
           <div class="col-md-6">
-            <article class="project-panel">
+            <article class="project-panel shadow-sm">
               <h3 class="project-title">Skilline Project</h3>
               <p class="project-text">
                 A responsive web project demonstrating mobile-first UI
@@ -362,8 +575,8 @@
                 <li>HTML5</li><li>CSS3</li><li>JavaScript</li>
               </ul>
               <div class="project-actions">
-                <a class="btn btn-sm btn-accent" href="https://github.com/user-attachments/assets/a59af7d9-1acd-45a3-acaa-b7fe4cad298b">Live demo</a>
-                <a class="btn btn-sm btn-outline-accent" href="https://github.com/abdelarmanmohammed777/skyline-project">Source code</a>
+                <a class="btn btn-sm btn-accent" href="https://github.com/user-attachments/assets/a59af7d9-1acd-45a3-acaa-b7fe4cad298b" target="_blank" rel="noopener">Live demo</a>
+                <a class="btn btn-sm btn-outline-accent" href="https://github.com/abdelarmanmohammed777/skyline-project" target="_blank" rel="noopener">Source code</a>
               </div>
             </article>
           </div>
@@ -372,103 +585,84 @@
       </div>
     </section>
 
+
     <!-- ============================= CONTACT ============================= -->
 
-    <section class="section section-alt" id="contact">
-      <div class="container">
+    <section class="section" id="contact">
+      <div class="container text-center text-lg-start">
         <div class="row gy-5">
-
           <div class="col-lg-5">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-text">
-              Have an opportunity, a question, or feedback on the roadmap
-              above? I'd like to hear from you.
+            <h2 class="section-title text-center text-lg-start">Contact</h2>
+            <p class="section-text text-center text-lg-start">
+              Have an opportunity, a question, or feedback on the roadmap? I'd like to hear from you.
             </p>
-
-            <ul class="contact-list list-unstyled">
+            <ul class="contact-list list-unstyled justify-content-center justify-content-lg-start">
               <li>
-                <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                <span>Ismailia, Egypt</span>
-              </li>
-              <li>
-                <i class="bi bi-envelope" aria-hidden="true"></i>
+                <i class="bi bi-envelope"></i>
                 <a href="mailto:bodaelaraby333@gmail.com">bodaelaraby333@gmail.com</a>
               </li>
               <li>
-                <i class="bi bi-telephone" aria-hidden="true"></i>
+                <i class="bi bi-telephone"></i>
                 <a href="tel:+201288312230">+20 128 831 2230</a>
               </li>
               <li>
-                <i class="bi bi-github" aria-hidden="true"></i>
-                <a href="https://github.com/abdelarmanmohammed777" target="_blank" rel="noopener noreferrer">
-                  github.com/abdelarmanmohammed777
-                </a>
+                <i class="bi bi-geo-alt"></i>
+                <span>Ismailia, Egypt</span>
               </li>
             </ul>
           </div>
-         <div class="col-lg-7">
-  <form id="contactForm" class="contact-form needs-validation" action="https://formspree.io/f/mljdeaey" method="POST" novalidate>
-    <div class="mb-3">
-      <label for="cf-name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="cf-name" name="name" required />
-      <div class="invalid-feedback">Please enter your name.</div>
-    </div>
-    <div class="mb-3">
-      <label for="cf-email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="cf-email" name="email" required />
-      <div class="invalid-feedback">Please enter a valid email.</div>
-    </div>
-    <div class="mb-3">
-      <label for="cf-message" class="form-label">Message</label>
-      <textarea class="form-control" id="cf-message" name="message" rows="4" required></textarea>
-      <div class="invalid-feedback">Please write a short message.</div>
-    </div>
-    <button type="submit" id="submitBtn" class="btn btn-accent">Send message</button>
-    <p id="contactStatus" class="contact-status" role="status" aria-live="polite"></p>
-  </form>
-</div>
+
+          <div class="col-lg-7">
+            <form id="contactForm" action="https://formspree.io/f/xknkgrpl" method="POST" class="contact-form text-start" novalidate>
+              <div class="mb-3">
+                <label for="nameInput" class="form-label">Name</label>
+                <input type="text" class="form-control" id="nameInput" name="name" required placeholder="Your Name" />
+              </div>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="emailInput" name="email" required placeholder="name@example.com" />
+              </div>
+              <div class="mb-3">
+                <label for="messageInput" class="form-label">Message</label>
+                <textarea class="form-control" id="messageInput" name="message" rows="4" required placeholder="Your message..."></textarea>
+              </div>
+              <button type="submit" id="submitBtn" class="btn btn-accent w-100">Send message</button>
+              <p id="contactStatus" class="contact-status mt-3 text-center"></p>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-
 
   <!-- ============================= FOOTER ============================= -->
   <footer class="site-footer">
     <div class="container">
-      <p class="footer-note">
-        © <span id="year"></span> Abdelrahman Mohamed. Built with HTML, CSS, JavaScript &amp; Bootstrap.
-      </p>
-      <ul class="footer-social list-unstyled">
-  <li><a href="mailto:bodaelaraby333@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a></li>
-  <li><a href="tel:+201288312230" aria-label="Phone"><i class="bi bi-telephone"></i></a></li>
-  <li><a href="https://github.com/abdelarmanmohammed777" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a></li>
-  <li><a href="https://www.linkedin.com/in/abdulrahman-mohamed-49a972437/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
-    </ul>
+      <p class="footer-note">Designed &amp; Built by Abdelrahman Mohamed &copy; <span id="year"></span></p>
+      
+      <!-- Footer Accent Color Chooser -->
+      <div class="footer-color-picker mb-3">
+        <button class="color-btn color-blue" onclick="setThemeColor('#0d6efd')" title="Blue"></button>
+        <button class="color-btn color-green" onclick="setThemeColor('#198754')" title="Green"></button>
+        <button class="color-btn color-yellow" onclick="setThemeColor('#ffc107')" title="Yellow"></button>
+        <button class="color-btn color-purple" onclick="setThemeColor('#6f42c1')" title="Purple"></button>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://github.com/abdelarmanmohammed777" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/abdulrahman-mohamed-49a972437/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:bodaelaraby333@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+      </div>
     </div>
   </footer>
-    
-  <!-- ============================= FOOTER ============================= -->
 
-
-  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
-    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  <!-- Back To Top Button -->
+  <button id="backToTopBtn" class="back-to-top" title="Go to top">
+    <i class="bi bi-arrow-up"></i>
   </button>
-<div id="cursor"></div>
-  <script src="bootstrap-5.3.8-dist/js/bootstrap.js"></script>
+
+  <!-- Scripts -->
+  <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
   <script src="main.js"></script>
-
-
-
-          <!-- Splash Screen -->
-<div id="splashScreen" class="splash-screen">
-  <div class="splash-content">
-    <h1 class="splash-logo">{ AM }</h1>
-    <p class="splash-text">Loading Portfolio...</p>
-    <div class="spinner-border text-light" role="status"></div>
-  </div>
-</div>
-
-  <pre class="code-window-body"><code id="typedCode"></code></pre>
 </body>
 </html>
-
-     <!-- Splash Screen -->`
